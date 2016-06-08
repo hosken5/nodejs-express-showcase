@@ -11,8 +11,8 @@ var routes = require('./routes/index');
 var users = require('./routes/user');
 var superagent = require('./routes/superagent');
 var eventproxy = require('./routes/eventproxy');
-
-
+var asynct = require('./routes/async');
+var engine =require('ejs-locals');
 var app = express();
 
 var env = process.env.NODE_ENV || 'development';
@@ -21,8 +21,12 @@ app.locals.ENV_DEVELOPMENT = env == 'development';
 
 // view engine setup
 
+app.engine('ejs',engine);
+
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'ejs');
+
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(logger('dev'));
@@ -37,6 +41,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/superagent',superagent);
 app.use('/eventproxy',eventproxy);
+app.use('/async',asynct);
 
 
 
@@ -48,7 +53,6 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-/// error handlers
 
 // development error handler
 // will print stacktrace

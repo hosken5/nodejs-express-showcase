@@ -1,0 +1,17 @@
+<!--<% include header %>-->
+
+  <h1><%=title %></h1>
+  <p>Welcome to <%=title %></p>
+    <% if (isVisit){%>
+        <h4>欢迎回来</h4>
+    <%}else{%>
+        <h4>欢迎第一次访问</h4>
+    <%}%>
+
+  <ul>
+        <li><a href="/superagent">superagent</a></li>
+        <li><a href="/eventproxy">eventproxy</a></li>
+        <li><%=link_to("/async","async")%></li>
+  </ul>
+
+<!--<% include footer %>-->
