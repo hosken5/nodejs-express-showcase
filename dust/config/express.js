@@ -34,6 +34,7 @@ dust.helpers.substr = function (chunk, ctx, bodies, params) {
   return chunk.write(str);
 }
 
+dust.config.whitespace = true ;
 
 kleiDust.setOptions({
   // extension:'dust'
