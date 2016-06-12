@@ -13,12 +13,11 @@ gulp.task('sass', function () {
 gulp.task('watch', function() {
   gulp.watch('./public/css/*.scss', ['sass']);
 });
-
 gulp.task('develop', function () {
   livereload.listen();
   nodemon({
     script: 'app.js',
-    ext: 'js coffee handlebars',
+    ext: 'js coffee handlebars dust',
     stdout: false
   }).on('readable', function () {
     this.stdout.on('data', function (chunk) {

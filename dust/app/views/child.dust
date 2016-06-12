@@ -1,0 +1,206 @@
+{> base  address=homeAddress /}
+
+
+{<content}
+    <p>Child content...</p>
+    {^name}
+      name not exist
+    {/name}
+
+    {?name}
+      name exits_
+    {/name}
+    <ul>
+        {#names}
+            <li> 第{$idx}个数值{name},一共{$len}个元素</li>{~n}
+        {/names}
+    </ul>
+    {! Comment syntax !}
+  {#person}
+    <div>name:{name} and age:{age} and sex:{sex}</div>
+  {/person}
+
+    {` Preserve all new lines{sdf},
+
+    whitespace, and bra ces `}
+
+  {#A}
+    <div>{name}</div>
+    <div>{anotherName}</div>
+  {/A}
+
+   {A.B.name}
+    <br>
+
+    {#A.B} name i0n B={name}
+      {#A}
+          namsdfe in A: {name}
+      {/A}
+    {/A.B}
+
+    <br>
+    {#A.B}
+        name—— in B={name} name in A={A.name}
+    {/A.B}
+
+    <div>
+      {#A2}
+        {#names}{.} {/names}
+      {/A2}
+    </div>
+
+    {!合并两个context!}
+    <div>
+      {#A2:A3}
+          {~n}{#names}<div>{.} -- type:{type}</div>{/names}
+      {/A2}
+    </div>
+
+    <div style="margin: 20px 0px;">
+      合并两个context!
+    </div>
+    {!合并两个context   A3:A2 == A2:A3  !}
+    <div>
+      {#A3:A2}
+        {~n}{#names}<div>{.} -- type:{type}</div>{/names}
+      {/A3}
+    </div>
+
+    {#A.B foo="Hi" bar=" Good to see you"}
+      {foo} {name} {bar}
+    {/A.B}
+    <br>
+    {#A.B foo=A.name bar=anotherName}
+      {foo} {name} {bar}
+    {/A.B}
+    <div>
+      {#A.B foo="{A.name}" bar="{anotherName}" }
+        {foo} {name} {bar}
+      {/A.B}
+    </div>
+
+    <div>
+      {#A name="Not Albert"}
+          name is {name}.
+      {/A}
+    </div>
+
+  <div>
+
+    {@eq key="CS201" value=courseName}
+      {@eq key="CS101" value=prereq}
+          print it is CS201 course and has CS 101 as prereq
+       {:else}
+          print it is not CS201 course and has CS 101 as prereq
+      {/eq}
+    {/eq}
+  </div>
+
+    {! Output something specific as well !}
+    {@select key=foo}
+      {@any}Congratulations! You got: {/any}
+      {@eq value="1"}First Place{/eq}
+      {@eq value="2"}Second Place{/eq}
+      {@eq value="3"}Third Place{/eq}
+      {@none}Better luck next time!{/none}
+    {/select}
+
+
+    {! foo is 1 or 2 or 3 !}
+    {@select key=foo}
+      {@eq value="1"/}
+      {@eq value="2"/}
+      {@eq value="3"/}
+      {@any}Foo is 1, 2, or 3{/any}
+      {@none}Foo is not 1, 2, or 3{/none}
+    {/select}
+
+    {@math key="13" method="add" operand="12"}
+      {@gt value=123}
+          13 + 12 > 123
+      {/gt}
+      {@default}
+          Math is fun
+      {/default}
+    {/math}
+    <div>
+      {#friends}
+        {.}{@sep},{/sep}
+      {/friends}
+    </div>
+    <div>
+      {#friends}
+        {.},
+      {/friends}
+    </div>
+
+    <div>
+        @size的使用:
+      {@size key=friends /}
+     </div>
+
+    <div>
+      自定义函数:substr:{str="1234567" begin="1" end="4" /}{@substr str="1234567" begin="1" end="4" /}
+    </div>
+
+    <div>
+        自定义函数:substr:{str="1234567" begin="1" end="4" /}{@substr str="1234567" begin="1"  len="2" /}
+    </div>
+
+
+    <table>
+      {#rows}
+          <tr class="
+          {@math key=$idx method="mod" operand=2}
+            {@eq value=0}
+              even
+          {:else}
+               odd
+          {/eq}
+          {/math}
+        "><td>{.}</td></tr>
+      {/rows}
+    </table>
+
+    <div>
+     math的使用 {@math key="13" method="add" operand="12"}
+        {@gt value=123}
+            13 + 12 > 123
+         {:esle}
+          13+12<123
+        {/gt}
+        {@default}
+            Math is fun
+        {/default}
+      {/math}
+    </div>
+
+
+    <div>
+        math的使用 {@math key="13" method="add" operand="12" }
+      {@eq value=25}
+          13+12=25
+      {/eq}
+    {/math}
+    </div>
+
+
+    <div>
+        math的使用 {@math key="13" method="add" operand="12" }
+      {@eq value=26}
+          13+12=26
+      {:else}
+          13+12!=26
+      {/eq}
+    {/math}
+    </div>
+
+  <div>
+      <h3>contextDump的使用</h3>
+      <div>{@contextDump key="current|full" to="output|console"/} - contextDump </div>
+
+      <div style="margin-top: 20px">{@contextDump key="full" to="output|console"/} - contextDump </div>
+
+  </div>
+
+{/content}
