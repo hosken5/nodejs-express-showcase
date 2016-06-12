@@ -42,6 +42,8 @@ app.use('/users', users);
 app.use('/superagent',superagent);
 app.use('/eventproxy',eventproxy);
 app.use('/async',asynct);
+app.use('/login',require('./routes/login'));
+app.use('/mapshowcase',require('./routes/mapshowcase'));
 
 
 
