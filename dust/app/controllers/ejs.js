@@ -18,7 +18,7 @@ router.get('/ejs', function (req, res, next) {
       name:'Harvey',
       sex:'male'
     },
-    name:'',
+    name:'1',
     title:'dusttest',
     "names" : [{ "name": "Larry" },{ "name": "Curly" },{ "name": "Moe" }],
     "anotherName": "root2",

@@ -1,8 +1,7 @@
 {> base  address=homeAddress /}
 
-
 {<content}
-    <p>Child content...</p>
+    <p>Child content..</p>
     {^name}
       name not exist
     {/name}
