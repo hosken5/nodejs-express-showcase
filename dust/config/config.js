@@ -8,7 +8,7 @@ var config = {
     app: {
       name: 'dust'
     },
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 3500,
   },
 
   test: {
@@ -16,7 +16,7 @@ var config = {
     app: {
       name: 'dust'
     },
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 3500,
   },
 
   production: {
@@ -24,7 +24,7 @@ var config = {
     app: {
       name: 'dust'
     },
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 3500,
   }
 };
 

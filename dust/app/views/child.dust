@@ -1,7 +1,7 @@
 {> base  address=homeAddress /}
 
 {<content}
-    <p>Child content..</p>
+    <p>Child conddfsfstent..-</p>
     {^name}
       name not exist
     {/name}
