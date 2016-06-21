@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ZH-cn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
+
   <title>{title}</title>
   <link rel="stylesheet" href="/css/style.css">
-  {?ENV_DEVELOPMENT}
-    <script src="http://localhost:35729/livereload.js"></script>
-  {/ENV_DEVELOPMENT}
+  {!{?ENV_DEVELOPMENT}!}
+    {!<script src="http://localhost:35729/livereload.js"></script>!}
+  {!{/ENV_DEVELOPMENT}!}
     <style>
         .even{
             background: #ccc;
@@ -16,6 +17,7 @@
             background: #00B7FF;
         }
     </style>
+    <script src="/components/jquery/dist/jquery.js"></script>
 </head>
 
     <body>
@@ -25,6 +27,9 @@
       {/address}
     </div>
         {+content/}
+
+
+        {+javascript/}
 
     </body>
 

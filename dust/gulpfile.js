@@ -66,6 +66,13 @@ function onStart() {
             if(status=='open'){
                 console.log('连接成功!开始刷新浏览器.');
                 bs.init({
+                    ui: {
+                      port: 4501,
+                      weinre: {
+                        port: 4502
+                      }
+                    },
+                    scrollProportionally:false,
                     // informs browser-sync to proxy our expressjs app which would run at the following location
                     proxy: 'http://localhost:3500',
                     // informs browser-sync to use the following port for the proxied app

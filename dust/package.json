@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": ""
+    "test": "",
     "start": "node app.js"
   },
   "dependencies": {
@@ -20,6 +20,8 @@
     "klei-dust": "^1.0.0",
     "method-override": "^2.3.0",
     "morgan": "^1.6.1",
+    "request": "^2.72.0",
+    "request-promise": "^3.0.0",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
