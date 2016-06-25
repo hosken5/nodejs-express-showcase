@@ -11,6 +11,7 @@ var methodOverride = require('method-override');
 var  kleiDust = require('klei-dust');
 var dust = require('dustjs-linkedin');
 var engines = require('consolidate');
+var responseTime = require('response-time') ;
 
 
 //dust 自定义函数
@@ -72,12 +73,13 @@ module.exports = function(app, config) {
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
-    extended: true
-  }));
+     extended: true
+   }));
   app.use(cookieParser());
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
+  //app.use(responseTime());
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {

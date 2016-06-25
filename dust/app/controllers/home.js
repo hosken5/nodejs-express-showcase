@@ -1,12 +1,16 @@
 var express = require('express'),
-  router = express.Router(),
-  Article = require('../models/article');
+    router = express.Router(),
+    Article = require('../models/article');
+var logger = require('../lib/logger');
 
 module.exports = function (app) {
   app.use('/', router);
 };
 
+
 router.get('/', function (req, res, next) {
+  // if(!req.body) return res.sendStatus(400) ;
+  //   if(req.body) return res.end(JSON.stringify(req.body));
   var articles = [new Article(), new Article()];
     // res.render('index', {
     //   title: 'Generator-Express MVC',

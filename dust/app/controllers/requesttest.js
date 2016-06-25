@@ -21,8 +21,9 @@ router.get('/requestget', function (req, res, next) {
   });
 });
 
+
 router.post('/requestpost', function (req, res, next) {
-  console.log('requestgetrequestgetrequestgetrequestget');
+  //console.log('requestgetrequestgetrequestgetrequestget');
   rp.post({
       url:"http://localhost:8088/requestpos",
       qs:{a:"你",b:"好"}
@@ -36,4 +37,10 @@ router.post('/requestpost', function (req, res, next) {
       // res.send(data);
     });
   // res.send({'message':'你好'});
+});
+
+router.get('/test',function(req,res,next){
+    // console.log(console.dir(req.));
+    debugger ;
+    res.send({1:1});
 });

@@ -23,7 +23,7 @@ gulp.task('watch', function() {
 gulp.task('nodemon', function (cb) {
     var called = false;
     return nodemon({
-        // nodemon our expressjs server
+        nodeArgs: ['--debug'],
         script: 'app.js',
         ignore: ["views/*","test/*",'gulpfile.js'],
         // watch core server file(s) that require server restart on change
